@@ -1,0 +1,220 @@
+/* 1. 全局重置与变量定义 (CSS Variables) */
+:root {
+    --bg-color: #f8f9fa; /* 一个非常浅的灰色背景 */
+    --font-color: #212529; /* 深灰色字体，比纯黑更柔和 */
+    --primary-color: #007bff; /* 醒目的蓝色，用于链接和重点 */
+    --border-color: #dee2e6; /* 边框和分隔线的颜色 */
+    --card-bg-color: #ffffff; /* 卡片/内容区域的白色背景 */
+    --code-bg-color: #e9ecef; /* 代码块的背景色 */
+
+    --font-family-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-family-mono: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+/* 基础样式重置 */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-family-sans);
+    background-color: var(--bg-color);
+    color: var(--font-color);
+    line-height: 1.7; /* 增加行高以提高可读性 */
+    font-size: 17px;
+}
+
+/* 2. 整体布局 */
+.container {
+    max-width: 800px; /* 内容最大宽度 */
+    margin: 0 auto; /* 水平居中 */
+    padding: 2rem 1.5rem; /* 上下边距和左右内边距 */
+}
+
+/* 3. 头部 (Header) */
+.site-header {
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    text-align: center;
+}
+
+.site-header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+.site-header h1 a {
+    text-decoration: none;
+    color: var(--font-color);
+    font-weight: 700;
+}
+
+.site-header p {
+    margin: 0.5rem 0 0;
+    color: #6c757d;
+    font-size: 1.1rem;
+}
+
+/* 4. 文章列表 (首页) */
+.post-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.post-list li {
+    background-color: var(--card-bg-color);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 8px; /* 圆角卡片效果 */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* 微妙的阴影效果 */
+    transition: transform 0.2s ease-in-out;
+}
+
+.post-list li:hover {
+    transform: translateY(-5px); /* 悬停时轻微上浮 */
+}
+
+.post-list h2 {
+    margin: 0 0 0.5rem;
+    font-size: 1.75rem;
+}
+
+.post-list h2 a {
+    text-decoration: none;
+    color: var(--font-color);
+}
+
+.post-list p {
+    margin: 0 0 1rem;
+    color: #495057;
+}
+
+.post-date {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+/* 5. 单篇文章 (post.html) */
+/* 文章页的返回导航 */
+.post-nav {
+    margin-bottom: 2rem;
+}
+.post-nav a {
+    text-decoration: none;
+    color: var(--font-color);
+    font-weight: 600;
+    transition: color 0.2s;
+}
+.post-nav a:hover {
+    color: var(--primary-color);
+}
+
+/* 文章自己的头部 */
+.post-header {
+    text-align: center; /* 文章标题居中 */
+    margin-bottom: 3rem;
+    border-bottom: none;
+}
+
+.post-header h1 {
+    font-size: 2.8rem;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+    color: var(--font-color);
+}
+.post-header .post-date {
+    display: block;
+    color: #6c757d;
+    font-size: 1rem;
+}
+
+article h1 {
+    font-size: 2.8rem;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+}
+
+article .post-date {
+    margin-bottom: 2rem;
+    display: block;
+}
+
+/* 文章正文样式 */
+article .content {
+    font-size: 1.1rem;
+}
+
+article .content h2, article .content h3 {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.3rem;
+}
+
+article .content p {
+    margin-bottom: 1.2rem;
+}
+
+article .content a {
+    color: var(--primary-color);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--primary-color);
+}
+article .content a:hover {
+    border-bottom-style: solid;
+}
+
+/* 代码块和行内代码 */
+article .content pre {
+    background-color: var(--code-bg-color);
+    padding: 1rem;
+    border-radius: 5px;
+    overflow-x: auto; /* 代码过长时可以水平滚动 */
+    font-family: var(--font-family-mono);
+    font-size: 0.95rem;
+}
+
+article .content code {
+    background-color: var(--code-bg-color);
+    padding: 0.2em 0.4em;
+    margin: 0;
+    font-size: 85%;
+    border-radius: 3px;
+    font-family: var(--font-family-mono);
+}
+
+/* pre 标签内的 code 标签不需要背景色 */
+article .content pre code {
+    background: none;
+    padding: 0;
+    font-size: inherit;
+}
+
+/* 引用块 */
+article .content blockquote {
+    margin-left: 0;
+    padding-left: 1.5rem;
+    border-left: 4px solid var(--primary-color);
+    color: #6c757d;
+    font-style: italic;
+}
+
+
+/* 6. 响应式设计 */
+@media (max-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+
+    .container {
+        padding: 1.5rem 1rem;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    article h1 {
+        font-size: 2.2rem;
+    }
+}

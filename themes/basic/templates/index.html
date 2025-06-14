@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+{# 在这里引入站点头部 #}
+{% include "header.html" %}
+
+<ul class="post-list">
+    {% for post in posts %}
+    <li>
+        <h2><a href="{{ post.permalink }}">{{ post.metadata.title }}</a></h2>
+        <p>{{ post.metadata.description }}</p>
+        <p class="post-date">{{ post.metadata.date }}</p>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock content %}

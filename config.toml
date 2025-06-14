@@ -1,0 +1,6 @@
+# press-rs/config.toml
+
+base_url = "https://example.com"
+title = "我的Rust博客"
+description = "一个记录学习和生活的地方"
+theme = "basic"
